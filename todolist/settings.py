@@ -46,11 +46,15 @@ DJANGO_APPS = [
     # 'corsheaders'
 ]
 
+THIRD_PARTY_APPS = [
+    "phonenumber_field",
+]
+
 OWN_APPS = [
     'task',
 ]
 
-INSTALLED_APPS = DJANGO_APPS + OWN_APPS
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + OWN_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
