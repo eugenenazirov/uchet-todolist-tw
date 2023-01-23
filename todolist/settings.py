@@ -46,11 +46,11 @@ DJANGO_APPS = [
     # 'corsheaders'
 ]
 
-# OWN_APPS = [
-#
-# ]
+OWN_APPS = [
+    'task',
+]
 
-INSTALLED_APPS = DJANGO_APPS # + OWN_APPS
+INSTALLED_APPS = DJANGO_APPS + OWN_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -116,6 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'todolist.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
