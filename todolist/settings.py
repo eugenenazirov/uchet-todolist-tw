@@ -43,14 +43,14 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'corsheaders'
+    # 'corsheaders'
 ]
 
-OWN_APPS = [
+# OWN_APPS = [
+#
+# ]
 
-]
-
-INSTALLED_APPS = DJANGO_APPS + OWN_APPS
+INSTALLED_APPS = DJANGO_APPS # + OWN_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
