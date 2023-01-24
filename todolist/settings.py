@@ -172,3 +172,14 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 40
 }
+
+DJOSER = {
+    'PASSWORD_RESET_CONFIRM_URL': 'users/reset_password_confirm/{uid}/{token}/',
+    'SEND_ACTIVATION_EMAIL': False,
+    'PASSWORD_RESET_SHOW_EMAIL_NOT_FOUND': True,
+    # 'LOGOUT_ON_PASSWORD_CHANGE': True,
+    'SERIALIZERS': {},
+}
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
