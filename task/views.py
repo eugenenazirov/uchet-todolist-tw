@@ -12,7 +12,7 @@ from task.serializers import TaskSerializer, TaskListSerializer
 class TaskViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
-    permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
+    permission_classes = (IsOwnerOrReadOnly,)
 
     @action(methods=['post'], detail=True)
     def execute(self, request, pk):

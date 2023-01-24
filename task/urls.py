@@ -6,7 +6,6 @@ from .views import TaskViewSet
 router = routers.DefaultRouter()
 router.register(r'todo', TaskViewSet)
 
-print(router.urls)
 
 urlpatterns = [
     path('', include(router.urls))
