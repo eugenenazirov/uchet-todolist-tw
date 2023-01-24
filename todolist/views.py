@@ -23,7 +23,5 @@ class PasswordResetConfirmationView(UserViewSet):
             'uid': uid,
             'form_url': request.get_full_path()
         }
-        # post_data = {'uid': uid, 'token': token}
-        # result = requests.post(post_url, data=post_data)
-        # content = result.text
+
         return render(request, template_name='password_reset_confirm.html', context=context)
