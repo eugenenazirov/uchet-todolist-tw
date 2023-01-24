@@ -107,6 +107,10 @@ DATABASES = {
 
 AUTH_USER_MODEL = 'todolist.User'
 
+AUTHENTICATION_BACKENDS = [
+    'todolist.backends.EmailOrPhoneBackend',
+    'django.contrib.auth.backends.ModelBackend'
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -164,5 +168,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-    ]
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 40
 }
