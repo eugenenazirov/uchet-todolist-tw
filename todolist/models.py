@@ -10,7 +10,7 @@ class User(AbstractUser):
     phone_number = PhoneNumberField(max_length=30, unique=True)
 
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["phone_number"]
+    REQUIRED_FIELDS = ["phone_number", "username"]
 
     objects = CustomUserManager()
 
