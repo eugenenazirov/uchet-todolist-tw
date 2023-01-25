@@ -181,8 +181,8 @@ DJOSER = {
     'SERIALIZERS': {},
 }
 
-EMAIL_HOST = 'localhost'
-EMAIL_PORT = 1025
+EMAIL_HOST = os.getenv('EMAIL_HOST', 'localhost')
+EMAIL_PORT = os.getenv('EMAIL_PORT', 1025)
 
 CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL', 'amqp://guest@localhost:5672//')
 CELERY_TIMEZONE = os.getenv('TIME_ZONE', 'Asia/Almaty')
