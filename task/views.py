@@ -17,7 +17,6 @@ from .tasks import send_mail_on_status_change
 
 class TaskViewSet(viewsets.ModelViewSet):
     serializer_class = TaskSerializer
-    # TODO подцепить другой сериализатор
     permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
     pagination_class = StandartResultSetPagination
 
