@@ -8,7 +8,7 @@ apply-migrations:
 	python ./manage.py migrate todolist
 	python ./manage.py migrate
 
-install: install-dependencies install-migrations
+install: install-dependencies apply-migrations
 
 start:
 	python ./manage.py runserver
