@@ -7,7 +7,7 @@ from task.models import Task
 @receiver(signal=pre_save, sender=Task)
 def on_status_change(instance, **kwargs):
     pk = instance.pk
-    if not instance.pk:
+    if not pk:
         return
 
     owner_id, is_completed_new = instance.owner_id, instance.is_completed
