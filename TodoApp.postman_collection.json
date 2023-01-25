@@ -1,0 +1,446 @@
+{
+	"info": {
+		"_postman_id": "d9783371-2f70-40ab-aa5e-0a30abfd6de6",
+		"name": "TodoApp Uchet.kz",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23064750"
+	},
+	"item": [
+		{
+			"name": "Todo List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 674d03c2f6eb7a2b0e44137c6277e95c5ef6c3af",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/todo/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"todo",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Todo Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 674d03c2f6eb7a2b0e44137c6277e95c5ef6c3af",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Test pre_save signals\",\n    \"description\": \"To finish this testwork\",\n    \"deadline\": \"2023-02-23T15:41:00+06:00\",\n    \"is_completed\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/todo/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"todo",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Todo Update",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 674d03c2f6eb7a2b0e44137c6277e95c5ef6c3af",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"is_completed\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/todo/:id/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"todo",
+						":id",
+						""
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Todo Retrieve",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 674d03c2f6eb7a2b0e44137c6277e95c5ef6c3af",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/todo/:id/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"todo",
+						":id",
+						""
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Todo Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/todo/:id/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"todo",
+						":id",
+						""
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Todo Execute",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 674d03c2f6eb7a2b0e44137c6277e95c5ef6c3af",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/todo/:id/execute/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"todo",
+						":id",
+						"execute",
+						""
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phone_number\": \"+77478799887\",\n    \"username\": \"jayz\",\n    \"email\": \"jayz@rap.com\",\n    \"password\": \"verysecretpass\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/users/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 134b00d931012daace1c4d84982cee9a08c248b1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "supergut",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "verysecretpass",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "super@gut.com",
+							"type": "text"
+						},
+						{
+							"key": "phone_number",
+							"value": "+77001113366",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/users/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"jagzonmusic@gmail.com\",\n    \"password\": \"newpass123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/token/login/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"token",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users Logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 134b00d931012daace1c4d84982cee9a08c248b1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"propdylan@rockandroll.com\",\n    \"password\": \"verysecretpass\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/token/logout/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"token",
+						"logout",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users Reset Password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 674d03c2f6eb7a2b0e44137c6277e95c5ef6c3af",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"jagzonmusic@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/users/reset_password/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"users",
+						"reset_password",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users Reset Password Confirm",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 674d03c2f6eb7a2b0e44137c6277e95c5ef6c3af",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"uid\": \"Mzg\",\n    \"token\": \"bijacb-6e7870bc347d02fd09eb4113050997b1\",\n    \"new_password\": \"newpass123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/users/reset_password_confirm/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"users",
+						"reset_password_confirm",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
