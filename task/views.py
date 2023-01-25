@@ -44,10 +44,6 @@ class TaskViewSet(viewsets.ModelViewSet):
         task.is_completed = True
         task.save()
 
-        owner_id = task.owner_id
-
-        send_mail_on_status_change.delay(str(owner_id), pk)
-
         serializer = self.serializer_class(instance=task)
         return Response({
             'executed': serializer.data
