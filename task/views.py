@@ -35,8 +35,6 @@ class TaskViewSet(viewsets.ModelViewSet):
         This operation available for task owner user only.
         """
         task = get_object_or_404(self.get_queryset(), pk=pk)
-        if request.user != task.owner:
-            raise PermissionDenied()
         task.is_completed = True
         task.save()
 
