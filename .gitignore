@@ -11,3 +11,5 @@
 __pycache__/
 infra/pg-data
 infra/rabbitmq
+db.sqlite3
+.prospector.yaml
