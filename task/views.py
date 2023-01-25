@@ -10,9 +10,14 @@ from task.paginations import StandartResultSetPagination
 from task.permissions import IsOwnerOrReadOnly
 from task.serializers import TaskSerializer, TaskListSerializer
 
+from django.dispatch import receiver
+from django.db.models.signals import post_save, pre_save
+from .tasks import send_mail_on_status_change
+
 
 class TaskViewSet(viewsets.ModelViewSet):
     serializer_class = TaskSerializer
+    # TODO подцепить другой сериализатор
     permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
     pagination_class = StandartResultSetPagination
 
@@ -29,13 +34,25 @@ class TaskViewSet(viewsets.ModelViewSet):
         Execute endpoint allows POST requests to change task status.
         This operation available for task owner user only.
         """
-        task = get_object_or_404(self.queryset, pk=pk)
+        task = get_object_or_404(self.get_queryset(), pk=pk)
         if request.user != task.owner:
             raise PermissionDenied()
         task.is_completed = True
         task.save()
 
+        owner_id = task.owner_id
+
+        send_mail_on_status_change.delay(str(owner_id), pk)
+
         serializer = self.serializer_class(instance=task)
         return Response({
             'executed': serializer.data
         })
+
+
+@receiver(signal=pre_save, sender=Task)
+def on_status_change(instance, **kwargs):
+    owner_id, pk, is_completed_new = instance.owner_id, instance.pk, instance.is_completed
+    is_completed_old = Task.objects.get(id=pk).is_completed
+    if is_completed_old != is_completed_new:
+        send_mail_on_status_change.delay(instance.owner_id, instance.pk, is_completed_new)

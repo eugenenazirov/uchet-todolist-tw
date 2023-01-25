@@ -15,9 +15,6 @@ class PasswordResetConfirmationView(UserViewSet):
     permission_classes = []
 
     def get_reset_template(self, request, uid, token):
-        protocol = 'https://' if request.is_secure() else 'http://'
-        web_url = protocol + request.get_host()
-        post_url = web_url + '/' + djoser_settings.get('PASSWORD_RESET_CONFIRM_URL')
         context = {
             'token': token,
             'uid': uid,

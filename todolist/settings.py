@@ -177,9 +177,15 @@ DJOSER = {
     'PASSWORD_RESET_CONFIRM_URL': 'users/reset_password_confirm/{uid}/{token}/',
     'SEND_ACTIVATION_EMAIL': False,
     'PASSWORD_RESET_SHOW_EMAIL_NOT_FOUND': True,
-    # 'LOGOUT_ON_PASSWORD_CHANGE': True,
+    'LOGOUT_ON_PASSWORD_CHANGE': True,
     'SERIALIZERS': {},
 }
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 1025
+
+CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL', 'amqp://guest@localhost:5672//')
+CELERY_TIMEZONE = os.getenv('TIME_ZONE', 'Asia/Almaty')
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'

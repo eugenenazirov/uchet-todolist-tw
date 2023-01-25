@@ -10,3 +10,4 @@
 .env
 __pycache__/
 infra/pg-data
+infra/rabbitmq
