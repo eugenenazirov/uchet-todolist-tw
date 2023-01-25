@@ -21,6 +21,11 @@ class TaskViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
     pagination_class = StandartResultSetPagination
 
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return TaskListSerializer
+        return super().get_serializer_class()
+
     def get_queryset(self):
         """
         Get queryset for current user
