@@ -27,3 +27,6 @@ If you're on Windows, write your own command to run ./infra/docker-compose.yml
 8. Run Django development server: ```make start```
 
 Enjoy the app!
+
+
+Test work terms of reference: https://gist.github.com/eugenenazirov/e1a7860eca11a0b0a7ecb4e0fbd8715a
